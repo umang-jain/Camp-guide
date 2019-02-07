@@ -15,13 +15,16 @@ app.use(express.static("public"))
 app.get("/",function(req,res){
     res.render("home");
 });
+
+//---------- CAMPGROUNDS ------------
+
 app.get("/campgrounds",function(req,res){
     Campground.find({},function(err,allcampgrounds){
         if(err){
             console.log(err);
         }
         else{
-            res.render("index",{campgrounds:allcampgrounds});
+            res.render("campgrounds/index",{campgrounds:allcampgrounds});
         }
     })
 });
@@ -43,7 +46,7 @@ app.post("/campgrounds",function(req,res){
     });
 });
 app.get("/campgrounds/new",function(req,res){
-    res.render("new.ejs");
+    res.render("campgrounds/new");
 });
 app.get("/campgrounds/:id",function(req,res){
     Campground.findById(req.params.id).populate("comments").exec(function(err,foundcampground){
@@ -51,10 +54,26 @@ app.get("/campgrounds/:id",function(req,res){
                 console.log(err);
             }
             else{
-                res.render("show",{campground:foundcampground})
+                res.render("campgrounds/show",{campground:foundcampground})
             }
         });
     });
+
+//------------- COMMENTS  ---------------
+
+app.get("/campgrounds/:id/comments/new",(req,res) => {
+  Campground.findById(req.params.id,(err,campground) => {
+    if(err){
+      console.log(err);
+    }else{
+      res.render('comments/new',{campground});
+    }
+  });
+});
+
+app.post('/campgrounds/:id/comments/', (req,res) => {
+
+});
 
 app.listen("3000",function(){
    console.log("Starting server on port 3000");
