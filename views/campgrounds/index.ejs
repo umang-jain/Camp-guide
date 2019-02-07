@@ -1,0 +1,30 @@
+<% include partials/header.ejs %>
+
+
+<div class="container">
+    <header class="jumbotron text-center">
+        <div calss= "container">
+            <h1>Welcome to Camp Guide</h1>
+            <p>Here is a list of Camping Grounds In India</p>
+            <a class="btn btn-info btn btn-lg" href="/">Back to home page</a>
+            <a class="btn btn-info btn btn-lg" href="campgrounds/new">Add a new camping ground</a>
+        </div>
+    </header>
+
+    <div class="row text-center" style="display:flex;flex-wrap:wrap;">
+        <% campgrounds.forEach(function(campground){ %>
+        <div class="col-md-3 col-sm-6">
+            <div class="img-thumbnail">
+                <img src="<%= campground.image %>" alt="<%= campground.name %>" style="width:200px;height:100px;">
+                <div class="caption">
+                    <h4><%= campground.name %></h4>
+                </div>
+                <a href="/campgrounds/<%= campground._id %>" class="btn btn-info">More Info</a>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</div>
+
+
+<% include partials/footer.ejs %>
