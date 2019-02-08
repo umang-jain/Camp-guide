@@ -72,7 +72,18 @@ app.get("/campgrounds/:id/comments/new",(req,res) => {
 });
 
 app.post('/campgrounds/:id/comments/', (req,res) => {
-
+  Campground.findById(req.params.id,(err,campground) => {
+    if(err){
+      console.log(err);
+      res.redirect('/campgrounds')
+    }else{
+      Comment.create(req.body.comment,(err,comment) => {
+        campground.comments.push(comment);
+        campground.save();
+        res.redirect('/campgrounds/'+req.params.id)
+      });
+    }
+  });
 });
 
 app.listen("3000",function(){
