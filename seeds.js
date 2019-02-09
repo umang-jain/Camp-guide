@@ -1,6 +1,7 @@
 var mongoose= require("mongoose");
 var Campground= require("./models/campground");
 var Comment = require("./models/comment");
+var User = require("./models/user");
 
 var data = [
     {
@@ -18,7 +19,7 @@ var data = [
         image:"https://www.indianholiday.com/blog/wp-content/uploads/2014/06/Camping-in-Jaisalmer.jpg",
         description:"The natural setting of Jaisalmer makes it a perfect paradise for campers. Fondly known as the ‘Golden City of India’, Jaisalmer is indeed a trekker’s paradise. The famous Sam Sand Dunes offer some of the amazing camping sites in India. The son touched gleaming sands create a silhouette against the sand dunes. However, if you want to indulge yourself, The Serai will provide you a wonderful experience. It houses 21 large canvas tents built on a base of Jaisalmer stone, set away from it all on 30 acres of desert scrub.",
     }
-    
+
 ]
 
 function seedDB(){
@@ -43,6 +44,9 @@ function seedDB(){
                                 data.comments.push(comment);
                                 data.save();
                                 console.log("created new comment");
+                                User.remove({},(err,user) => {
+                                  console.log('User Removed!');
+                                })
                             }
                         })
                     }
