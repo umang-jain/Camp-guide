@@ -10,7 +10,7 @@ seedDB();
 mongoose.connect("mongodb://localhost/campguide");
 app.set("view engine","ejs");
 app.use(bodyparser.urlencoded({extended:true}));
-app.use(express.static("public"))
+app.use(express.static(__dirname +"/public"))
 
 app.get("/",function(req,res){
     res.render("home");

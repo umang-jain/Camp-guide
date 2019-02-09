@@ -47,3 +47,17 @@ header .overlay {
     display: none;
   }
 }
+
+/* Show Page */
+.image-responsive{
+  width: 100%;
+}
+.img-thumbnail{
+  padding: 0;
+}
+.img-thumbnail .caption-full{
+  padding: 9px;
+}
+#content_main{
+  margin-top: 1em;
+}
