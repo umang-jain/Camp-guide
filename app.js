@@ -14,7 +14,8 @@ var express                 = require("express"),
 var commentRoutes     = require('./routes/comments'),
     campgroundRoutes  = require('./routes/campgrounds'),
     indexRoutes       = require('./routes/index');
-var port = process.env.port || 3000;
+
+var port = process.env.PORT || 3000;
 
 //mongoose.connect("mongodb://localhost/campguide",{ useNewUrlParser: true });
 mongoose.connect("mongodb://admin:root1234@ds133875.mlab.com:33875/camp-guide")
