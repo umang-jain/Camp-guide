@@ -61,3 +61,6 @@ header .overlay {
 #content_main{
   margin-top: 1em;
 }
+.delete-form{
+  display: inline;
+}

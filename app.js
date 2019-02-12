@@ -4,6 +4,7 @@ var express                 = require("express"),
     mongoose                = require("mongoose"),
     passport                = require('passport'),
     LocalStrategy           = require('passport-local'),
+    methodOverride          = require('method-override')
     Campground              = require("./models/campground"),
     Comment                 = require("./models/comment"),
     User                    = require("./models/user"),
@@ -16,8 +17,9 @@ var commentRoutes     = require('./routes/comments'),
 mongoose.connect("mongodb://localhost/campguide",{ useNewUrlParser: true });
 app.set("view engine","ejs");
 app.use(bodyparser.urlencoded({extended:true}));
-app.use(express.static(__dirname +"/public"))
-seedDB();
+app.use(express.static(__dirname +"/public"));
+app.use(methodOverride('_method'));
+// seedDB();
 //---------- PASSPORT CONFIGURATION --------------
 
 app.use(require('express-session')({
