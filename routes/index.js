@@ -13,10 +13,11 @@ router.get('/register', (req,res) => {
 router.post('/register', (req,res) => {
   User.register(new User({username: req.body.username}),req.body.password,(err,user) => {
     if(err){
-      console.log(err);
+      req.flash('error',err.message);
       return res.render('login/register')
     }
     passport.authenticate('local')(req,res,() => {
+      req.flash('success','Welcome to Camp Guide' + user.username);
       res.redirect('/campgrounds');
     })
   })
@@ -32,15 +33,8 @@ router.post('/login', passport.authenticate('local',{
 });
 router.get('/logout', (req, res) => {
   req.logout();
+  req.flash('success','You have been successfully logged out!');
   res.redirect('/campgrounds');
 });
-
-//--------- MIDDLEWARE -------------
-function isLoggedIn(req,res,next){
-  if(req.isAuthenticated()){
-    return next();
-  }
-  res.redirect('/login');
-}
 
 module.exports = router;

@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "body": "^5.1.0",
+    "connect-flash": "^0.1.1",
     "connect-mongo": "^2.0.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
