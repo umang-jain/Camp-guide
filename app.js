@@ -16,9 +16,8 @@ var commentRoutes     = require('./routes/comments'),
     indexRoutes       = require('./routes/index');
 
 var port = process.env.PORT || 3000;
+var dbUrl = process.env.DATABASEURL || "mongodb://localhost/campguide";
 
-//mongoose.connect("mongodb://localhost/campguide",{ useNewUrlParser: true });
-mongoose.connect("mongodb://admin:root1234@ds133875.mlab.com:33875/camp-guide")
 app.set("view engine","ejs");
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.static(__dirname +"/public"));
