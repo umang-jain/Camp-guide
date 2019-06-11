@@ -10,6 +10,6 @@ To setup this project check out the [Setup Guide][I].
 
 [I]: /setup-guide.md
 
- #Heroku Link :
+ <strong>Heroku Link <strong>:
 
  https://camp-guide.herokuapp.com/
