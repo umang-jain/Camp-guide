@@ -11,12 +11,15 @@ var express                 = require("express"),
     User                    = require("./models/user"),
     seedDB                  = require("./seeds");
 
+seedDB();
+
 var commentRoutes     = require('./routes/comments'),
     campgroundRoutes  = require('./routes/campgrounds'),
     indexRoutes       = require('./routes/index');
 
 var port = process.env.PORT || 3000;
-var dbUrl = process.env.DATABASEURL || "mongodb://localhost/campguide";
+// var dbUrl = process.env.DATABASEURL || "mongodb://localhost/campguide";
+mongoose.connect("mongodb://admin123:admin123@ds135427.mlab.com:35427/camp-guide");
 
 app.set("view engine","ejs");
 app.use(bodyparser.urlencoded({extended:true}));

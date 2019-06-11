@@ -9,7 +9,7 @@ router.get("/",function(req,res){
             console.log(err);
         }
         else{
-            res.render("campgrounds/index",{campgrounds:allcampgrounds});
+            res.render('campgrounds/index',{campgrounds:allcampgrounds});
         }
     })
 });
@@ -36,7 +36,7 @@ router.post("/",middleware.isLoggedIn,function(req,res){
     });
 });
 router.get("/new",middleware.isLoggedIn,function(req,res){
-    res.render("campgrounds/new");
+    res.render('campgrounds/new');
 });
 router.get("/:id",function(req,res){
     Campground.findById(req.params.id).populate("comments").exec(function(err,foundcampground){
@@ -44,7 +44,7 @@ router.get("/:id",function(req,res){
                 console.log(err);
             }
             else{
-                res.render("campgrounds/show",{campground:foundcampground})
+                res.render('campgrounds/show',{campground:foundcampground})
             }
         });
     });
