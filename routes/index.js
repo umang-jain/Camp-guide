@@ -8,13 +8,13 @@ router.get("/",function(req,res){
 });
 
 router.get('/register', (req,res) => {
-  res.render('login/register');
+  res.render('login/register',{error:false});
 });
 router.post('/register', (req,res) => {
-  User.register(new User({username: req.body.username}),req.body.password,(err,user) => {
+  User.register(new User({username: req.body.username,email:req.body.email}),req.body.password,(err,user) => {
     if(err){
-      req.flash('error',err.message);
-      return res.render('login/register')
+      req.flash('error',"Username already exists");
+      return res.render('login/register',{error:"Username already exists"})
     }
     passport.authenticate('local')(req,res,() => {
       req.flash('success','Welcome to Camp Guide' + user.username);
