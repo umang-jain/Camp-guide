@@ -11,7 +11,7 @@ var express                 = require("express"),
     User                    = require("./models/user"),
     seedDB                  = require("./seeds");
 
-seedDB();
+// seedDB();
 
 var commentRoutes     = require('./routes/comments'),
     campgroundRoutes  = require('./routes/campgrounds'),

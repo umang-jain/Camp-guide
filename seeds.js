@@ -44,9 +44,9 @@ function seedDB(){
                                 data.comments.push(comment);
                                 data.save();
                                 console.log("created new comment");
-                                User.remove({},(err,user) => {
-                                  console.log('User Removed!');
-                                })
+                                // User.remove({},(err,user) => {
+                                //   console.log('User Removed!');
+                                // })
                             }
                         })
                     }

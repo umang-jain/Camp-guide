@@ -59,12 +59,24 @@ router.get('/:id/edit', middleware.checkOwnership,(req,res) => {
     });
 });
 router.put('/:id',middleware.checkOwnership, (req,res) => {
-  Campground.findByIdAndUpdate(req.params.id,req.body.campground,(err,campground) => {
+  var name=req.body.name;
+  var state=req.body.state;
+  var image=req.body.image;
+  var description=req.body.description;
+  var price=req.body.price;
+  var object={
+      name,
+      state,
+      image,
+      description,
+      price
+  }
+  Campground.findByIdAndUpdate(req.params.id,object,(err,campground) => {
     if(err){
       console.log(err);
       res.redirect('/campgrounds');
     }else{
-      res.redirect('/campgrounds/' + req.params.id),{campground};
+      res.redirect('/campgrounds/' + req.params.id);
     }
   });
 })
