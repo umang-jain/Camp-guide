@@ -13,11 +13,11 @@ router.get('/register', (req,res) => {
 router.post('/register', (req,res) => {
   User.register(new User({username: req.body.username,email:req.body.email}),req.body.password,(err,user) => {
     if(err){
-      req.flash('error',"Username already exists");
+      // req.flash('error',"Username already exists");
       return res.render('login/register',{error:"Username already exists"})
     }
     passport.authenticate('local')(req,res,() => {
-      req.flash('success','Welcome to Camp Guide' + user.username);
+      // req.flash('success','Welcome to Camp Guide' + user.username);
       res.redirect('/campgrounds');
     })
   })
@@ -33,7 +33,7 @@ router.post('/login', passport.authenticate('local',{
 });
 router.get('/logout', (req, res) => {
   req.logout();
-  req.flash('success','You have been successfully logged out!');
+  // req.flash('success','You have been successfully logged out!');
   res.redirect('/campgrounds');
 });
 

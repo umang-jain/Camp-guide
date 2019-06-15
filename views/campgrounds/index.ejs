@@ -1,54 +1,25 @@
 <% include ../partials/header.ejs %>
 
 <div class="container">
+
     <header class="jumbotron text-center" id="index_header">
-        <div calss= "container">
-            <h1>Welcome to Camp Guide</h1>
-            <p>Here is a list of Camping Grounds In India</p>
-            <a class="btn btn-info btn btn-lg" href="/">Back to home page</a>
-            <a class="btn btn-info btn btn-lg" href="campgrounds/new">Add a new camping ground</a>
-        </div>
+          <img src="/img/index_header.svg" alt="sing up image" id="index_image">
     </header>
 
-    <div class="row text-center" style="display:flex;flex-wrap:wrap;">
+    <!-- <hr class="mt-2 mb-5" style="background-color:#d85775"> -->
+
+    <div class="row text-center text-lg-left">
+
         <% campgrounds.forEach(function(campground){ %>
-        <div class="col-md-3 col-sm-6">
-            <div class="img-thumbnail">
-                <img src="<%= campground.image %>" alt="<%= campground.name %>" style="width:200px;height:100px;">
-                <div class="caption">
-                    <h4><%= campground.name %></h4>
-                </div>
-                <a href="/campgrounds/<%= campground._id %>" class="btn btn-info">More Info</a>
-            </div>
-        </div>
+          <div class="col-lg-4 col-md-4 col-6 img-hover-zoom img-hover-zoom--brightness">
+            <a href="/campgrounds/<%= campground._id %>" class="d-block mb-4 h-100" style="text-decoration:none">
+                  <img class="img-fluid img-thumbnail" src="<%= campground.image %>" alt="<%= campground.name %>">
+                  <p class="campground_name"><%= campground.name %></p>
+            </a>
+          </div>
         <% }); %>
     </div>
-    <div class="row text-center" style="display:flex;flex-wrap:wrap;">
-        <% campgrounds.forEach(function(campground){ %>
-        <div class="col-md-3 col-sm-6">
-            <div class="img-thumbnail">
-                <img src="<%= campground.image %>" alt="<%= campground.name %>" style="width:200px;height:100px;">
-                <div class="caption">
-                    <h4><%= campground.name %></h4>
-                </div>
-                <a href="/campgrounds/<%= campground._id %>" class="btn btn-info">More Info</a>
-            </div>
-        </div>
-        <% }); %>
-    </div>
-    <div class="row text-center" style="display:flex;flex-wrap:wrap;">
-        <% campgrounds.forEach(function(campground){ %>
-        <div class="col-md-3 col-sm-6">
-            <div class="img-thumbnail">
-                <img src="<%= campground.image %>" alt="<%= campground.name %>" style="width:200px;height:100px;">
-                <div class="caption">
-                    <h4><%= campground.name %></h4>
-                </div>
-                <a href="/campgrounds/<%= campground._id %>" class="btn btn-info">More Info</a>
-            </div>
-        </div>
-        <% }); %>
-    </div>
+
 </div>
 
 
