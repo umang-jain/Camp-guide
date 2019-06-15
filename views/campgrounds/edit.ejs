@@ -1,30 +1,47 @@
-<% include ../partials/header.ejs %>
+<% include ../partials/form_partials_header.ejs %>
+<% include ../partials/navbar.ejs %>
 
+  <div class="main">
+      <!-- Sing in  Form -->
+      <section class="sign-in">
+          <div class="container">
+              <div class="signin-content">
+                  <div class="signin-image">
+                      <figure><img src="/img/signin-image.jpg" alt="sing up image"></figure>
+                  </div>
 
-<div class="container">
+                  <div class="signin-form">
+                      <h2 class="form-title" style="text-align:center;">Edit <%= campground.name %></h2>
+                      <form method="POST" class="register-form" id="login-form" action="/campgrounds/<%= campground._id %>?_method=PUT">
+                          <div class="form-group">
+                              <label for="name"><i class="zmdi zmdi-labels"></i></label>
+                              <input type="text" name="name" id="name" value="<%= campground.name %>" name="campground[name]" required/>
+                          </div>
+                          <div class="form-group">
+                              <label for="state"><i class="zmdi zmdi-pin"></i></label>
+                              <input type="text" name="state" id="state" value="<%= campground.state %>" name="campground[state]" required/>
+                          </div>
+                          <div class="form-group">
+                              <label for="price"><i class="zmdi zmdi-money"></i></label>
+                              <input type="number" name="price" id="price" value="<%= campground.price %>" name="campground[price]" min="0.01" step="0.01" required/>
+                          </div>
+                          <div class="form-group">
+                              <label for="image"><i class="zmdi zmdi-image"></i></label>
+                              <input type="text" name="image" id="image" value="<%= campground.image %>" name="campground[image]" required/>
+                          </div>
+                          <div class="form-group">
+                              <label for="description"><i class="zmdi zmdi-info-outline"></i></label>
+                              <input type="text" name="description" id="description" value="<%= campground.description %>" name="campground[description]" required/>
+                          </div>
+                          <div class="form-group form-button">
+                              <input type="submit" id="signin" class="form-submit"/>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </section>
 
-       <h1 style="text-align:center">Edit <%= campground.name %></h1>
-       <div style="width:30%; margin:25px auto;">
-           <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="post">
-              <div class="form-group">
-                  <input class="form-control" type="text" value="<%= campground.name %>" name="campground[name]">
-              </div>
-              <div class="form-group">
-                  <input class="form-control" type="number" value="<%= campground.price %>" name="campground[price]" min="0.01" step="0.01">
-              </div>
-              <div class="form-group">
-                  <input class="form-control" type="text" value="<%= campground.image %>" name="campground[image]">
-              </div>
-               <div class="form-group">
-                   <input type="text" class="form-control"  value="<%= campground.description %>" name="campground[description]">
-              </div>
-              <div class="form-group">
-                  <button class="btn btn-lg btn-info btn-block">Submit</button>
-              </div>
-           </form>
-           <a class="btn btn-lg btn-info btn-block" href="/campgrounds">Go back</a>
-       </div>
-</div>
+  </div>
 
-
-<% include ../partials/footer.ejs %>
+  <% include ../partials/form_partials_footer.ejs %>

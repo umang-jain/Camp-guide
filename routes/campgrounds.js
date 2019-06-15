@@ -15,11 +15,13 @@ router.get("/",function(req,res){
 });
 router.post("/",middleware.isLoggedIn,function(req,res){
     var name=req.body.name;
+    var state=req.body.state;
     var image=req.body.image;
     var desc=req.body.description;
     var price=req.body.price;
     var object={
         name:name,
+        state,
         image:image,
         description:desc,
         price
@@ -62,7 +64,7 @@ router.put('/:id',middleware.checkOwnership, (req,res) => {
       console.log(err);
       res.redirect('/campgrounds');
     }else{
-      res.redirect('/campgrounds/' + req.params.id);
+      res.redirect('/campgrounds/' + req.params.id),{campground};
     }
   });
 })

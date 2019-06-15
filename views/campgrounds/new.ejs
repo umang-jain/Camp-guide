@@ -1,30 +1,47 @@
-<% include ../partials/header.ejs %>
+  <% include ../partials/form_partials_header.ejs %>
+  <% include ../partials/navbar.ejs %>
 
+    <div class="main">
+        <!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="/img/signin-image.jpg" alt="sing up image"></figure>
+                    </div>
 
-<div class="container">
+                    <div class="signin-form">
+                        <h2 class="form-title" style="text-align:center;">Enter Details</h2>
+                        <form method="POST" class="register-form" id="login-form" action="/campgrounds">
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-labels"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Name of Campground" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="state"><i class="zmdi zmdi-pin"></i></label>
+                                <input type="text" name="state" id="state" placeholder="State" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="price"><i class="zmdi zmdi-money"></i></label>
+                                <input type="number" name="price" id="price" placeholder="Price Per Night" min="0.01" step="0.01" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="image"><i class="zmdi zmdi-image"></i></label>
+                                <input type="text" name="image" id="image" placeholder="Image URL" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="description"><i class="zmdi zmdi-info-outline"></i></label>
+                                <input type="text" name="description" id="description" placeholder="Description Of Campground" required/>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signin" id="signin" class="form-submit"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-       <h1 style="text-align:center">Create a New Campground</h1>
-       <div style="width:30%; margin:25px auto;">
-           <form action="/campgrounds" method="post">
-              <div class="form-group">
-                  <input class="form-control" type="text" placeholder="Name of Campground" name="name">
-              </div>
-              <div class="form-group">
-                  <input class="form-control" type="number" placeholder="Price per night" name="price" min="0.01" step="0.01">
-              </div>
-              <div class="form-group">
-                  <input class="form-control" type="text" placeholder="Image url" name="image">
-              </div>
-               <div class="form-group">
-                   <input type="text" class="form-control"  placeholder="Description of Campground" name="description">
-              </div>
-              <div class="form-group">
-                  <button class="btn btn-lg btn-info btn-block">Submit</button>
-              </div>
-           </form>
-           <a class="btn btn-lg btn-info btn-block" href="/campgrounds">Go back</a>
-       </div>
-</div>
+    </div>
 
-
-<% include ../partials/footer.ejs %>
+    <% include ../partials/form_partials_footer.ejs %>

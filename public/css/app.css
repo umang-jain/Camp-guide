@@ -1,10 +1,14 @@
+body{
+  height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#161616), color-stop(75%, rgba(22, 22, 22, 0.9)), to(rgba(22, 22, 22, 0.8)));
+  background: linear-gradient(to bottom, #161616 0%, rgba(22, 22, 22, 0.9) 75%, rgba(22, 22, 22, 0.8) 100%);
+}
+
 /* Index Page */
 
 #index_header{
-  /* margin-top: 100px; */
   background: transparent;
   color: white;
-  /* background-image: url("/img/index_header.svg"); */
 }
 #index_image{
   max-width: 100%;
@@ -22,17 +26,14 @@
   text-align: center;
 }
 .img-hover-zoom {
-  height: 300px; /* Modify this according to your need */
-  overflow: hidden; /* Removing this will break the effects */
+  height: 300px;
+  overflow: hidden;
 }
-/* Brightness-zoom Container */
 .img-hover-zoom--brightness img {
   transition: transform 2s, filter 1.5s ease-in-out;
   transform-origin: center center;
   filter: brightness(50%);
 }
-
-/* The Transformation */
 .img-hover-zoom--brightness:hover img {
   filter: brightness(100%);
   transform: scale(1.3);
@@ -40,11 +41,14 @@
 
 /* Show Page */
 
+#content_main{
+  margin-top: 50px; 
+}
 .image-responsive{
   width: 100%;
 }
 .img-thumbnail{
-  padding: 0;
+  padding: 1px;
 }
 .img-thumbnail .caption-full{
   padding: 9px;
@@ -57,11 +61,7 @@
 }
 
 /* Nav Bar */
-body{
-  height: 100%;
-  background: -webkit-gradient(linear, left top, left bottom, from(#161616), color-stop(75%, rgba(22, 22, 22, 0.9)), to(rgba(22, 22, 22, 0.8)));
-  background: linear-gradient(to bottom, #161616 0%, rgba(22, 22, 22, 0.9) 75%, rgba(22, 22, 22, 0.8) 100%);
-}
+
 .bg-black {
   background-color: #161616 !important;
 }
