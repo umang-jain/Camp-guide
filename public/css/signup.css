@@ -187,7 +187,8 @@ h2 {
 
 .main {
   background: #f8f8f8;
-  padding: 150px 0; }
+  padding-top:30px
+ }
 
 .clear {
   clear: both; }
@@ -250,10 +251,13 @@ body {
   -ms-transform: translate(-50%, -50%); }
 
 .signup {
-  margin-bottom: 150px; }
+  margin-bottom: 0px;
+}
 
 .signup-content {
-  padding: 75px 0; }
+  padding-top: 2px;
+  padding-bottom: 20px;
+}
 
 .signup-form, .signup-image, .signin-form, .signin-image {
   width: 50%;
@@ -290,7 +294,7 @@ figure {
     background: #4292dc; }
 
 #signin {
-  margin-top: 16px; }
+  margin-top: 10px; }
 
 .signup-image-link {
   font-size: 14px;
@@ -451,8 +455,8 @@ label.valid {
   font-size: 18px; }
 
 .signin-content {
-  padding-top: 67px;
-  padding-bottom: 87px; }
+  padding-top: 7px;
+}
 
 .social-login {
   align-items: center;
