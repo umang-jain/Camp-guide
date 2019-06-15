@@ -9,8 +9,9 @@ body{
 #index_header{
   background: transparent;
   color: white;
+  margin-top: 20px;
 }
-#index_image{
+#index_header_image{
   max-width: 100%;
   display:block;
   height: auto;
@@ -42,7 +43,7 @@ body{
 /* Show Page */
 
 #content_main{
-  margin-top: 50px; 
+  margin-top: 50px;
 }
 .image-responsive{
   width: 100%;

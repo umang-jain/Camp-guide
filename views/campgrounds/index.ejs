@@ -3,7 +3,7 @@
 <div class="container">
 
     <header class="jumbotron text-center" id="index_header">
-          <img src="/img/index_header.svg" alt="sing up image" id="index_image">
+          <img src="/img/index_header.svg" alt="sing up image" id="index_header_image">
     </header>
 
     <div class="row text-center text-lg-left">
@@ -11,8 +11,8 @@
         <% campgrounds.forEach(function(campground){ %>
           <div class="col-lg-4 col-md-4 col-6 img-hover-zoom img-hover-zoom--brightness">
             <a href="/campgrounds/<%= campground._id %>" class="d-block mb-4 h-100" style="text-decoration:none">
-                  <img class="img-fluid img-thumbnail" src="<%= campground.image %>" alt="<%= campground.name %>">
-                  <p class="campground_name"><%= campground.name %></p>
+                  <img class="img-fluid img-thumbnail" src="<%= campground.image %>" alt="<%= campground.name %>" style="width: 290px;height:168px;">
+                  <p class="campground_name"><strong><%= campground.name %>, <%= campground.state %></strong></p>
             </a>
           </div>
         <% }); %>
