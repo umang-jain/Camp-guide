@@ -187,7 +187,7 @@ h2 {
 
 .main {
   background: #f8f8f8;
-  padding-top:30px
+  padding-top:100px
  }
 
 .clear {
@@ -294,13 +294,22 @@ figure {
     background: #4292dc; }
 
 #signin {
-  margin-top: 10px; }
+  margin-top: 10px;
+}
 
 .signup-image-link {
   font-size: 14px;
-  color: #222;
+  color: grey;
   display: block;
   text-align: center; }
+
+.signup-image-link:hover {
+  font-size: 14px;
+  color: #222;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
 
 .term-service {
   font-size: 13px;
@@ -456,6 +465,7 @@ label.valid {
 
 .signin-content {
   padding-top: 7px;
+  padding-bottom: 20px;
 }
 
 .social-login {
