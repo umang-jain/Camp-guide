@@ -18,7 +18,7 @@ var commentRoutes     = require('./routes/comments'),
     indexRoutes       = require('./routes/index');
 
 var port = process.env.PORT || 3000;
-// var dbUrl = process.env.DATABASEURL || "mongodb://localhost/campguide";
+
 mongoose.connect("mongodb://admin123:admin123@ds135427.mlab.com:35427/camp-guide");
 
 app.set("view engine","ejs");
@@ -27,6 +27,7 @@ app.use(express.static(__dirname +"/public"));
 app.use(methodOverride('_method'));
 app.use(flash());
 // seedDB();
+
 //---------- PASSPORT CONFIGURATION --------------
 
 app.use(require('express-session')({
